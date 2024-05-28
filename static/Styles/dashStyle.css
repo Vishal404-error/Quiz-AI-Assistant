@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(7, 7, 61);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(36, 95, 75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+#navbar li {
+    padding: 15px;
+    font-size: 20px;
+}
+
+#navbar li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#navbar li a:hover {
+    color: goldenrod;
+}
+
+#navbar .logo h1 {
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin: 0;
+}
+
+#navbar .userlogo {
+    display: flex;
+    align-items: center;
+}
+
+#navbar .userBtn img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#navbar .userBtn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.content1 {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    position: relative;
+    top: 50px;
+}
+
+.content1 img {
+    width: 260px;
+    height: 260px;
+    border-radius: 15%;
+    padding: 15px;
+    transition: all 0.3s ease-in;
+}
+
+.content1 img:hover {
+    transform: scale(1.2);
+    box-shadow: 2px 2px 20px white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+    }
+
+    #navbar ul.active {
+        display: flex;
+    }
+
+    #navbar ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+    }
+
+    .content1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content1 img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.menu-toggle {
+    display: none;
+}

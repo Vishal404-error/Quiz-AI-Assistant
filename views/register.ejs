@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Jost", sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: no-repeat url(../static/bg2.jpg);
+            background-size: cover;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            /* position: fixed; */
+        }
+
+        .box {
+            position: absolute;
+            top: 15%;
+            left: 37%;
+            padding: 50px;
+            transition: .3s ease-in;
+            border-radius: 15px;
+            box-shadow: 2px 2px 20px rgb(5, 65, 50);
+            background: rgba(0, 0, 0, 0.8)
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 20px rgb(81, 209, 177);
+        }
+
+        .box h1 {
+            margin-bottom: 35px;
+            color: white;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .box .inputBox {
+            position: relative;
+        }
+
+        .box .inputBox input {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            outline: none;
+            border: none;
+            border-bottom: solid 1px white;
+            background: transparent;
+        }
+
+        .box .inputBox label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            font-size: 16px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .box .inputBox input:focus~label {
+            top: -20px;
+            left: 0;
+            color: #03a9f4;
+            font-size: 12px;
+        }
+
+        .box .inputBox input:valid~label {
+            top: -20px;
+            left: 0;
+            color: #03a9f4;
+            font-size: 12px;
+        }
+
+        .box input[type="submit"] {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            /* background: #03a9f4; */
+            background: linear-gradient(90deg, #1fbfd8, #0162c8);
+            padding: 5px 16px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 70px;
+        }
+
+        .box p {
+            color: white;
+            font-size: smaller;
+            position: relative;
+            bottom: -12px;
+            left: 25px;
+        }
+
+        .box p a {
+            text-decoration: none;
+            color: rgb(226, 182, 70);
+        }
+
+        .box p a:hover {
+            color: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>SignUp for free</h1>
+            <form id="signup-form">
+                <div class="inputBox">
+                    <input id="username" type="text" autocomplete="off" required />
+                    <label for="for">Your Name</label>
+                </div>
+                <div class="inputBox">
+                    <input id="email" type="text" autocomplete="off" required />
+                    <label for="for">E-mail</label>
+                </div>
+                <div class="inputBox">
+                    <input id="password" type="password" autocomplete="off" required />
+                    <label for="for">Password</label>
+                </div>
+                <div class="inputBox">
+                    <input id="cPassword" type="password" autocomplete="off" required />
+                    <label for="for">Confirm Password</label>
+                </div>
+                <input class="btn" type="submit" value="Sign Up" />
+                <p class="create">already have an account? <a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('signup-form')
+        form.addEventListener('submit', registerUser)
+
+        async function registerUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+            const cpassword = document.getElementById('cPassword').value
+
+
+            const result = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    email,
+                    password,
+                    cpassword
+                })
+            }).then((res) => res.json())
+            if (result.status === 'ok') {
+                console.log("Success")
+                alert('Account Created Successfully!!')
+            } else {
+                alert(result.error)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

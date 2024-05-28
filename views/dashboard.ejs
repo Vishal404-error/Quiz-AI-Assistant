@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #navbar ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        #navbar li {
+            padding: 10px 20px;
+        }
+
+        #navbar li a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #navbar li a:hover {
+            color: goldenrod;
+        }
+
+        #navbar .logo h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 30px;
+        }
+
+        .userlogo {
+            margin-left: auto;
+        }
+
+        .userBtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .userBtn img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .userBtn img:hover {
+            transform: scale(1.1);
+        }
+
+        .content1 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 80px; /* Adjusted for fixed navbar */
+            padding: 20px;
+        }
+
+        .content1 div {
+            width: 30%;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .content1 div:hover {
+            transform: translateY(-10px);
+        }
+
+        .content1 img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <div class="logo">
+                <h1>Quiz</h1>
+            </div>
+            <li><a href="/">Home</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About</a></li>
+            <div class="userlogo">
+                <button class="userBtn"><img src="../static/user2.png" alt="User"></button>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="content1">
+        
+        <div style="text-align: center;"><a href="/instructions"><img src="../static/technology.jpg" alt="Technology" class="firstImage"><br><br>SCIENCE</a></div>
+        <div style="text-align: center;"><a href="/spoinstruction"><img src="../static/sports.jpg" alt="Sports" ><br> <br> SPORTS</a></div>
+        <div style="text-align: center;"><a href="/filInstruction"><img src="../static/Entertainment.jpg" alt="Entertainment"><br> <br>Films & TV</a></div>
+    </div>
+
+    <form action="/logout" method="post">
+        <button>Logout</button>
+    </form>
+</body>
+
+</html>

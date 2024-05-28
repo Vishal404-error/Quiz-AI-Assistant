@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .main {
+            background: rgba(222, 252, 249, 0.9);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .inner {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .options {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004d99;
+            transform: translateY(-2px);
+        }
+
+        .scoreArea {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #ff007b;
+        }
+
+        .scoreArea.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <video class="bg-video" autoplay loop muted>
+        <source src="../static/bgvFilms.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="main">
+        <div class="inner" id="qportion">
+            <h2 class="question"></h2>
+            <ul>
+                <li>
+                    <input type="radio" name="ans" id="op1" class="options">
+                    <label id="ans1" for="op1"></label>
+                </li>
+                <li>
+                    <input type="radio" name="ans" id="op2" class="options">
+                    <label id="ans2" for="op2"></label>
+                </li>
+                <li>
+                    <input type="radio" name="ans" id="op3" class="options">
+                    <label id="ans3" for="op3"></label>
+                </li>
+                <li>
+                    <input type="radio" name="ans" id="op4" class="options">
+                    <label id="ans4" for="op4"></label>
+                </li>
+            </ul>
+            <button id="submit">Submit</button>
+        </div>
+        <div id="showScore" class="scoreArea"></div>
+    </div>
+    <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+    <script src="../../static/Scripts/FilmsScript.js"></script>
+</body>
+
+</html>
