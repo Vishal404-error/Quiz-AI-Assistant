@@ -150,7 +150,7 @@ const nextQuestion = () =>{
 // alan.alanButton()
 
 var alanBtnInstance = alanBtn({
-    key: "d0989f4461df59704c52e2c3181850e02e956eca572e1d8b807a3e2338fdd0dc/stage",
+    key: "5878707210b8ff2e1cfe01e2cdfbfc972e956eca572e1d8b807a3e2338fdd0dc/stage",
     onCommand: function (commandData) {
       if (commandData.command === "go:back") {
         //call client code that will react on the received command
